@@ -1,2 +1,3 @@
 animationcar.mp4 filter=lfs diff=lfs merge=lfs -text
+images/img1.jpg filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
