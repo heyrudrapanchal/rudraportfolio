@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudraportfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        dark: '#0F172A',
+                        darker: '#020617'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .progress-bar {
+            height: 6px;
+            border-radius: 3px;
+            background-color: #1E293B;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            background-color: #3B82F6;
+            transition: width 1s ease-in-out;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+        }
+        #vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body class="bg-darker text-gray-200 min-h-screen font-sans">
+    <div id="vanta-bg"></div>
+   
+    <!-- Navigation -->
+    <nav class="bg-dark/80 backdrop-blur-md fixed w-full z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-primary">RUDRA PANCHAL</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#skills" class="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
+                        <a href="#projects" class="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Projects</a>
+                        <a href="#contact" class="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-300 hover:text-primary focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark/95 backdrop-blur-lg pb-3 px-4">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#home" class="text-gray-300 hover:text-primary block px-3 py-2 rounded-md text-base font-medium transition-colors">Home</a>
+                <a href="#skills" class="text-gray-300 hover:text-primary block px-3 py-2 rounded-md text-base font-medium transition-colors">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-primary block px-3 py-2 rounded-md text-base font-medium transition-colors">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-primary block px-3 py-2 rounded-md text-base font-medium transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Hi, I'm <span class="text-primary">Rudra Panchal</span></h1>
+                <h2 class="text-2xl md:text-3xl text-gray-400 mb-6">Video Editor & Graphic Designer</h2>
+                <p class="text-gray-400 mb-8 max-w-lg">Creative and motivated graphic design enthusiast with a strong interest in video editing and a passion for crafting visually engaging content. Quick to adapt to new challenges with a strong work ethic and eagerness to learn, I am committed to continuous growth in both design and editing. Excited to apply my creativity and developing skills to contribute effectively to organizational success while building a solid foundation as a fresher.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium transition-colors">Contact Me</a>
+                    <a href="#projects" class="border border-gray-700 hover:border-primary text-gray-300 hover:text-primary px-6 py-3 rounded-md font-medium transition-colors">View Work</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary">
+                        <img src="http://static.photos/people/640x360/1" alt="Profile" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-dark/50 rounded-xl my-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-4">My <span class="text-primary">Skills</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Here's Breakdown of My Skills</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+ 
+
+      <!-- Design Skills -->
+      <div>
+        <h3 class="text-xl font-semibold mb-6 flex items-center">
+          <i data-feather="pen-tool" class="mr-2 text-primary"></i> Design Skills
+        </h3>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Adobe Photoshop</span>
+              <span class="text-gray-400">90%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Adobe Illustrator</span>
+              <span class="text-gray-400">85%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Media Skills -->
+      <div>
+        <h3 class="text-xl font-semibold mb-6 flex items-center">
+          <i data-feather="film" class="mr-2 text-primary"></i> Media Skills
+        </h3>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Adobe Premiere Pro</span>
+              <span class="text-gray-400">70%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 70%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Adobe After Effects</span>
+              <span class="text-gray-400">70%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 70%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End replacement -->
+  </div>
+</section>
+
+<!-- Project Categories -->
+<section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-dark/50 rounded-xl my-10">
+<div class="flex justify-center mb-12">
+  <div class="inline-flex rounded-md shadow-sm" role="group">
+    <button type="button" id="image-projects-btn" class="px-4 py-2 text-sm font-medium rounded-l-lg bg-primary text-white">
+      Image Projects
+    </button>
+    <button type="button" id="video-projects-btn" class="px-4 py-2 text-sm font-medium rounded-r-lg bg-gray-700 text-gray-300 hover:bg-gray-600">
+      Video Projects
+    </button>
+  </div>
+</div>
+
+<!-- Image Projects -->
+<div id="image-projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  
+  <!-- Project 1 -->
+  <div class="project-card bg-dark rounded-xl overflow-hidden border border-gray-800" data-aos="fade-up" data-aos-delay="100">
+    <div class="overflow-hidden">
+      <img src="images/img3.jpg" alt="Project 1" class="w-full object-contain">
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-semibold mb-2">BMW Poster</h3>
+      <p class="text-gray-400 mb-4">Bmw poster that shows text and background and branding of BMW M5 CAR.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">Photoshop</span>
+        <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">Illustrator</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project-card bg-dark rounded-xl overflow-hidden border border-gray-800" data-aos="fade-up" data-aos-delay="100">
+    <div class="overflow-hidden">
+      <img src="images/img1.jpg" alt="Project 2" class="w-full object-contain">
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-semibold mb-2">NIKE Banner</h3>
+      <p class="text-gray-400 mb-4">Nike banner with shoes and offer and company slogan</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">HTML/CSS</span>
+        <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">JavaScript</span>
+        <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">GSAP</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="project-card bg-dark rounded-xl overflow-hidden border border-gray-800" data-aos="fade-up" data-aos-delay="100">
+    <div class="overflow-hidden">
+      <img src="images/img2.jpg" alt="Project 3" class="w-full object-contain">
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-semibold mb-2">Burger Sale Flyer</h3>
+      <p class="text-gray-400 mb-4">Shop sale template and new burger introduction</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">HTML/CSS</span>
+        <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">JavaScript</span>
+        <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">GSAP</span>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- ✅ properly closed image-projects -->
+	<!-- Video Projects (Hidden by default) -->
+<div id="video-projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+
+    <div class="project-card bg-dark rounded-xl overflow-hidden border border-gray-800" data-aos="fade-up">
+        <div class="h-48 overflow-hidden relative">
+            <video class="w-full h-full object-cover" controls poster="videos/m1.png">
+                <source src="videos/magnifyme.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Magnify Me!</h3>
+            <p class="text-gray-400 mb-4">Animation like magnifying glass is going over text.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">After Effects</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card bg-dark rounded-xl overflow-hidden border border-gray-800" data-aos="fade-up" data-aos-delay="100">
+        <div class="h-48 overflow-hidden relative">
+            <video class="w-full h-full object-cover" controls poster="videos/m2.png">
+                <source src="videos/strangerthings.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Stranger Things Intro</h3>
+            <p class="text-gray-400 mb-4">Netflix series title intro animation</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">After Effects</span>
+                <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">Premiere Pro</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card bg-dark rounded-xl overflow-hidden border border-gray-800" data-aos="fade-up" data-aos-delay="100">
+        <div class="h-48 overflow-hidden relative">
+            <video class="w-full h-full object-cover" controls poster="videos/m4.png">
+                <source src="videos/animationcar.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Car Animation</h3>
+            <p class="text-gray-400 mb-4">Rolling tyres animation</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">After Effects</span>
+                <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">Premiere Pro</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card bg-dark rounded-xl overflow-hidden border border-gray-800" data-aos="fade-up" data-aos-delay="100">
+        <div class="h-48 overflow-hidden relative">
+            <video class="w-full h-full object-cover" controls poster="videos/m3.png">
+                <source src="videos/summerturnedprety.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Summer turned pretty Intro</h3>
+            <p class="text-gray-400 mb-4">Netflix series title intro animation</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">After Effects</span>
+                <span class="bg-gray-800 text-primary text-xs px-3 py-1 rounded-full">Premiere Pro</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+            <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-dark/50 rounded-xl my-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-4">Get In <span class="text-primary">Touch</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Have a Work or Project for me? Feel free to reach out!</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div data-aos="fade-right">
+                <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                            <i data-feather="mail" class="text-primary w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Email</h4>
+                            <p class="text-gray-400">Panchalrudra58@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                            <i data-feather="phone" class="text-primary w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Phone</h4>
+                            <p class="text-gray-400">+91 9173547509</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                            <i data-feather="map-pin" class="text-primary w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Location</h4>
+                            <p class="text-gray-400">Ahmedabad, Gujarat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10">
+                    <h3 class="text-xl font-semibold mb-6">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-colors">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-colors">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                        <input type="text" id="subject" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Subject">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your message"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium transition-colors">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-800 mt-10">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-4 md:mb-0">
+                <span class="text-xl font-bold text-primary">PORTFOLIO</span>
+            </div>
+            <div class="text-gray-400 text-sm">
+                <p>© 2025 RudraPanchal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script>
+        // Initialize Vanta.js
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0x020617,
+            size: 0.8
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Feather Icons
+        feather.replace();
+
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Project category toggle
+        const imageProjectsBtn = document.getElementById('image-projects-btn');
+        const videoProjectsBtn = document.getElementById('video-projects-btn');
+        const imageProjects = document.getElementById('image-projects');
+        const videoProjects = document.getElementById('video-projects');
+
+        imageProjectsBtn.addEventListener('click', function() {
+            imageProjects.classList.remove('hidden');
+            videoProjects.classList.add('hidden');
+            imageProjectsBtn.classList.remove('bg-gray-700', 'text-gray-300');
+            imageProjectsBtn.classList.add('bg-primary', 'text-white');
+            videoProjectsBtn.classList.remove('bg-primary', 'text-white');
+            videoProjectsBtn.classList.add('bg-gray-700', 'text-gray-300');
+        });
+
+        videoProjectsBtn.addEventListener('click', function() {
+            imageProjects.classList.add('hidden');
+            videoProjects.classList.remove('hidden');
+            videoProjectsBtn.classList.remove('bg-gray-700', 'text-gray-300');
+            videoProjectsBtn.classList.add('bg-primary', 'text-white');
+            imageProjectsBtn.classList.remove('bg-primary', 'text-white');
+            imageProjectsBtn.classList.add('bg-gray-700', 'text-gray-300');
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Animate progress bars on scroll
+        const animateProgressBars = () => {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        };
+
+        // Use Intersection Observer to trigger progress bar animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+	<script>
+  const imageBtn = document.getElementById("image-projects-btn");
+  const videoBtn = document.getElementById("video-projects-btn");
+  const imageProjects = document.getElementById("image-projects");
+  const videoProjects = document.getElementById("video-projects");
+
+  imageBtn.addEventListener("click", () => {
+    imageProjects.classList.remove("hidden");
+    videoProjects.classList.add("hidden");
+
+    imageBtn.classList.add("bg-primary", "text-white");
+    imageBtn.classList.remove("bg-gray-700", "text-gray-300");
+
+    videoBtn.classList.remove("bg-primary", "text-white");
+    videoBtn.classList.add("bg-gray-700", "text-gray-300");
+  });
+
+  videoBtn.addEventListener("click", () => {
+    videoProjects.classList.remove("hidden");
+    imageProjects.classList.add("hidden");
+
+    videoBtn.classList.add("bg-primary", "text-white");
+    videoBtn.classList.remove("bg-gray-700", "text-gray-300");
+
+    imageBtn.classList.remove("bg-primary", "text-white");
+    imageBtn.classList.add("bg-gray-700", "text-gray-300");
+  });
+</script>
+
+</body>
+</html>
